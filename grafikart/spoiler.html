@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Système de spoiler</title>
+        <style>
+            .spoiler-content{
+                display: inline-block;
+                width: 0;
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: opacity 0.5s;
+            }
+            .spoiler-content.visible{
+                display: inline;
+                width: auto;
+                height: auto;
+                opacity: 1;
+            }
+            .spoiler{
+                font-style: italic;
+                font-weight: bold;
+            }
+            .spoiler button{
+                background-color: brown;
+                color:ivory;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, quidem neque dignissimos rerum voluptates iusto possimus quas doloremque eligendi voluptas impedit unde ab magnam reprehenderit excepturi dolorum, illo incidunt soluta.
+        </p>
+
+        <p class="spoiler">
+            Monsieur X meurt à la fin<!--spoil-->
+        </p> 
+
+        <p>
+            <span>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam labore iusto assumenda tempora. A, aliquam omnis. Cum cumque laboriosam dolor ex corporis perferendis veritatis? Officiis officia sunt eos recusandae aspernatur!
+            </span> <br> <br>
+            <span>
+                Libero modi odit doloremque aperiam incidunt aliquam exercitationem ipsa veniam, <span class="spoiler">quas enim molestiae harum</span> est officiis temporibus perferendis eaque porro quis ab.
+            </span> <br>
+            <span>
+                Illo eius ab accusamus cupiditate quibusdam harum dicta numquam doloribus, culpa voluptatem. Sapiente, voluptate voluptates pariatur similique <span class="spoiler">maiores omnis recusandae atque corrupti!</span>
+            </span> <br><br>
+            <span class="spoiler">
+                Ils se marirent, vécurent heureux et eurent beaucoup d'enfants... 
+            </span>
+
+        
+        </p>
+
+        <script src="spoiler.js"></script>
+        
+    </body>
+
+</html>

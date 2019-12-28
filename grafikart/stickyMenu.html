@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="stickyMenu.css">
+        <title>Sticky menu</title>
+    </head>
+
+    <body>
+        <div class="topbar">
+            LOGO
+        </div>
+
+        <div class="menu" data-sticky>
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+            <a href="#">Item 4</a>
+            <a href="#">Item 5</a>
+        </div>
+
+        <div class="content">
+            <div class="main">
+                <h1>I'm a title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe totam fugit incidunt in! Vitae labore, doloribus assumenda sed, beatae dolorem mollitia quisquam aliquid nihil aut numquam! Consequatur esse dolor amet.</p>
+                <div style="background-color: #d5d5d5; height: 4000px;"></div>
+            </div>
+            <div class="sidebar">
+                <div class="block" data-sticky data-offset="68" data-constraint=".sidebar"> 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo doloremque enim, consectetur laboriosam sunt aspernatur suscipit nostrum numquam dignissimos perferendis facere ratione reiciendis totam. Hic placeat suscipit cupiditate accusamus perferendis.
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+
+        <script src="stickyMenu.js"></script>
+    </body>
+
+</html>
