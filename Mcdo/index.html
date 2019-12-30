@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu Mcdo</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <img src="./Assets/logo.png" alt="logo Mcdo">
+
+        <div>
+            <ul>
+                <li>Menu1: 10€</li>
+                <li>Menu2: 20€</li>
+                <li>Menu3: 5€</li>
+                <li>Boisson4: 2€</li>
+            </ul>
+        </div>
+        <div class="choixMenu">
+            <span>Choisissez votre menu:</span>
+            <input type="text" id="selectionMenu" value="">
+            <button id="okButton" onclick="calculPrix()">ok</button>
+        </div>
+
+        <div>
+            <span>Prix total:</span>
+            <span id="total">0</span>
+            <Span>€</Span>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
