@@ -1,13 +1,13 @@
 "use strict"; //force la déclaration de variables
 
-let intialTable = ["voiture","banane","saumon","pates"];
+let initialTable = ["voiture","banane","saumon","pates"];
 let finalTable = [];
 
 function myFunction(){
-    //dingDingBottle(16);
-    upDownLeftRight(intialTable, true, true);
-    palindrome();
-    sufferingOfKeys();
+    //dingDingBottle(5);
+    //upDownLeftRight(initialTable, false, true);
+    //palindrome("sas");
+    sufferingOfKeys("kayak");
 }
 
 function dingDingBottle(n) {
@@ -29,29 +29,63 @@ function dingDingBottle(n) {
 }
 
 
-function upDownLeftRight(intialTable, isLow, isReversed){
-    for(var i=0; i<intialTable.length; i++){
+function upDownLeftRight(initialTable, isLow, isReversed){
+    
+    for(var i=0; i<initialTable.length; i++){
         if(isLow == true){
-            i.toString().toLowerCase();
+            initialTable[i] = initialTable[i].toLowerCase();
         }
         else{
-            i.toString().toUpperCase();
+            initialTable[i] = initialTable[i].toUpperCase();
         }
-
     }
+
+
     if(isReversed){
-        finalTable=intialTable.reverse();
+        finalTable=initialTable.reverse();
     }
     console.log(finalTable);
     return finalTable;
     
 }
 
-function palindrome(){
-    console
+function palindrome(word){
+    
+    var wordReversed = "";
+
+    for (var i=word.length-1; i>=0 ;i --){
+        wordReversed += word[i];
+    }
+
+    if(word == wordReversed){
+        console.log("palindrome");
+        return true;   
+    }
+    else{
+        console.log("not palindrome");
+        return false;
+    }
+    
 }
 
-function sufferingOfKeys(){
-    console
+function sufferingOfKeys(text){
+    var countLetters = {};
+    var resultFinal = [];
+    for(var i =0; i<text.length; i++){
+        var letter = text[i];
+        if(countLetters[letter]!==undefined){
+            countLetters[letter] = countLetters[letter] + 1
+        }
+        else{
+            //si lettre pas dedans
+            countLetters[letter] = 1;
+        }
+    }
+
+    for (var key in countLetters){
+        var result = "{letter: '" + key + "', count: " + countLetters[key] +"}";
+        resultFinal.push(result);
+    }
+    console.log(resultFinal);
 }
 
