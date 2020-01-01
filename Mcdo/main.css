@@ -1,3 +1,16 @@
 .choixMenu{
     display: inline-block;
 }
+
+.errorMessage{
+    color: red;
+    margin-left: 160px;
+}
+
+.errorInput{
+    border: 2px solid red;
+}
+
+.hidden{
+    display: none;
+}

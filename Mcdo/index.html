@@ -18,14 +18,20 @@
         </div>
         <div class="choixMenu">
             <span>Choisissez votre menu:</span>
-            <input type="text" id="selectionMenu" value="">
+            <input type="text" id="selectionMenu" value="" title="Séparez vos commandes par des virgules">
             <button id="okButton" onclick="calculPrix()">ok</button>
+        </div>
+
+
+        <div class="errorMessage hidden" >
+            Ce champ est requis
         </div>
 
         <div>
             <span>Prix total:</span>
             <span id="total">0</span>
-            <Span>€</Span>
+            <Span>€</Span> <br>
+            <a href="./pickupPoints.html"><button>Next</button></a>
         </div>
 
         <script src="main.js"></script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pickup points page</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <img src="./Assets/logo.png" alt="logo Mcdo">
+        <div>
+            <span>Entrez votre code postal:</span>
+            <input type="text" id="selectionCodePostal" value="">
+            <button id="okButton" onclick="findPickupPoints()">ok</button>
+        </div>
+
+        <div class="errorMessage hidden">
+            Champ invalide
+        </div>
+
+        <script src="pickupPoints.js"></script>
+    </body>
+</html>
