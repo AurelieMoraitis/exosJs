@@ -88,4 +88,3 @@ function sufferingOfKeys(text){
     }
     console.log(resultFinal);
 }
-
