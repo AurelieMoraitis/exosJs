@@ -11,11 +11,11 @@
     background: silver;
   }
   
-  .memory > .card.justMatched
-  {
+  .memory > .card.justMatched,
+  .memory > .card.justMismatched {
     outline: 0.1em solid green;
   }
-  .memory > .card.justMisMatched {
+  .memory > .card.justMismatched {
     outline-color: red;
   }
   

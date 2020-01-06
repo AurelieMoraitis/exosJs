@@ -12,51 +12,44 @@ const SYMBOLS = '😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓�
 const VISUAL_PAUSE_MSECS = 750;
 
 class App extends Component {
+  state = {
+    cards: this.generateCards(),
+    currentPair: [],
+    guesses: 0,
+    matchedCardIndices: []
 
-  //state = "";
-
-  constructor(props){
-    console.log("**debut construscteur")
-    super(props);
-    
-    //this.handleCardClick = this.handleCardClick.bind(this);
-
-    this.state= {
-      cards: this.generateCards(),
-      currentPair: [],
-      guesses: 0,
-      matchedCardIndices: []
-    }
-    console.log("**fin construscteur")
   }
+
+  /*constructor(props){
+    super(props);
+    this.handleCardClick = this.handleCardClick.bind(this);
+  }*/
 
   generateCards() {
     const result = [];
-    const size = SIDE * SIDE; //hauteur * largeur
-    const candidates = shuffle(SYMBOLS); // melange les symboles
+    const size = SIDE * SIDE;
+    const candidates = shuffle(SYMBOLS);
     while (result.length < size) {
       const card = candidates.pop();
       result.push(card, card)
     }
-    //Result contient 36 symboles
     return shuffle(result);
   }
 
   //permet de garder la même valeur
   handleCardClick = index => {
-    const {currentPair,matchedCardIndices} = this.state;
+    const {currentPair} = this.state;
 
-    if(matchedCardIndices.includes(index)){
-      alert("Carte deja gagnée")
+    if (currentPair.length === 2){
+      return
     }
-    else if(currentPair[0]==index){
-      alert("Choisi une deuxième carte DIFFERENTE !");
-    }
-    else if (currentPair.length === 0){
+
+    if (currentPair.length === 0){
       this.setState({currentPair:[index]});
-    }else if (currentPair.length === 1){
-      this.handleNewPairCloseBy(index);
+      return
     }
+
+    this.handleNewPairCloseBy(index);
   }
 
   handleNewPairCloseBy(index){
@@ -70,43 +63,40 @@ class App extends Component {
     if (matched){
       this.setState({matchedCardIndices: [...matchedCardIndices, ...newPair]});
     }
-    setTimeout( //affiche les pair pendant 3/4sec
-      () => this.setState({currentPair: []}), 
-      VISUAL_PAUSE_MSECS);
+    setTimeout(() => this.setState({currentPair: []}), VISUAL_PAUSE_MSECS);
   }
 
   getFeedbackForCard(index){
     const {currentPair, matchedCardIndices} = this.state;
-    const indexMatched = matchedCardIndices.includes(index); //contient les ancinne carte affichées
-    let res = "";
+    const indexMatched = matchedCardIndices.includes(index);
 
-    if (currentPair.length<2){ // Quand une carte ou zero est choisie
-      res= (indexMatched || index === currentPair[0]) ? 'visible':'hidden'; 
-    }
-    else if(currentPair.includes(index)){ //Si deux carte on été choisies
-      res= indexMatched? 'justMatched':'justMisMatched';
-    }else{ //Si carte était deja visible
-      res = indexMatched? 'visible':'hidden';
+    if (currentPair.length<2){
+      return indexMatched || index === currentPair[0]? 'visile':'hidden'; //la paire reste visible 3/4 de seconde
     }
 
-    return res ;
+    if(currentPair.includes(index)){
+      return indexMatched? 'justMatched':'justMisMatched';
+    }
+
+    return indexMatched? 'visible':'hidden';
   }
 
-  render() { // appelé lors du init et quand setState
-    const {cards, guesses, matchedCardIndices} = this.state; //Descturation
+  render() {
+    const {cards, guesses, matchedCardIndices} = this.state;
     const won = matchedCardIndices.length === cards.length;
     return (
       <div className="memory">
         <GuessCount guesses={guesses} />
         
         {/*itération automatique*/}
-        {cards.map((currentCard, index )=> (
+        {cards.map((card, index )=> (
           <Card
-            card={currentCard}
+            card={card}
             feedback={this.getFeedbackForCard(index)}
             index = {index}
-            key = {index} //Chaque element needs a key
+            key={index}
             onClick={this.handleCardClick} >
+
           </Card>
         ))}
 

@@ -6,9 +6,8 @@ import './GuessCount.css';
 //destructure la prop
 const GuessCount = ({guesses}) => <div className="guesses">{guesses}</div>
 
-
 GuessCount.propTypes ={
-    guesses: PropTypes.number.isRequired, //condition sur la prop guesses
+    guesses: PropTypes.number.isRequired,
 }
 
 export default GuessCount
