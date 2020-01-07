@@ -6,7 +6,7 @@ const letterMasked = " _ ";
 let tries = 0;
 const letters = ['A ', 'B ', 'C ', 'D ', 'E ', 'F ', 'G ', 'H ', 'I ', 'J ', 'K ', 'L ', 'M ',
 'N ', 'O ', 'P ', 'Q ', 'R ', 'S ', 'T ', 'U ', 'V ', 'W ', 'X ', 'Y ', 'Z'];
-const words = ["BONJOUR", "VOITURE", "ORDINATEUR", "BANANE", "VACANCES"];
+const words = ["BONJOUR", "VOITURE", "ORDINATEUR", "BANANE", "VACANCES", "NOURRITURE", "TABLETTE", "BOUTEILLE", "DESTRUCTURATION"];
 const word = words[Math.floor(Math.random()*words.length)]; //choisir mot aléatoirement dans la liste
 
 
