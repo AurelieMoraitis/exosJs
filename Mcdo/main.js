@@ -19,6 +19,7 @@ let calculPrix = function(){
     let menuChoisi = document.getElementById('selectionMenu').value;
     let input;
     let errorText;
+    let nextButton = document.querySelector('#nextButton');
  
 
     if(menuChoisi === ""){
@@ -42,7 +43,11 @@ let calculPrix = function(){
             total += prixMenu[currentElement-1];
         }
         
+        nextButton.classList.remove('hidden');
     }
+
+
+
     document.getElementById("total").innerHTML = total;
     
 }
