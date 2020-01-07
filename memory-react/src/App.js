@@ -19,7 +19,7 @@ class App extends Component {
     console.log("**debut construscteur")
     super(props);
     
-    //this.handleCardClick = this.handleCardClick.bind(this);
+    this.handleCardClick = this.handleCardClick.bind(this);
 
     this.state= {
       cards: this.generateCards(),
@@ -70,7 +70,7 @@ class App extends Component {
     if (matched){
       this.setState({matchedCardIndices: [...matchedCardIndices, ...newPair]});
     }
-    setTimeout( //affiche les pair pendant 3/4sec
+    setTimeout( //affiche les pair pendant 3/4 de sec
       () => this.setState({currentPair: []}), 
       VISUAL_PAUSE_MSECS);
   }
@@ -89,7 +89,7 @@ class App extends Component {
       res = indexMatched? 'visible':'hidden';
     }
 
-    return res ;
+    return res;
   }
 
   render() { // appelé lors du init et quand setState

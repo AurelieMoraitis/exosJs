@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const letterMasked = " _ ";
+let tries = 0;
+const letters = ['A ', 'B ', 'C ', 'D ', 'E ', 'F ', 'G ', 'H ', 'I ', 'J ', 'K ', 'L ', 'M ',
+'N ', 'O ', 'P ', 'Q ', 'R ', 'S ', 'T ', 'U ', 'V ', 'W ', 'X ', 'Y ', 'Z'];
+const words = ["BONJOUR", "VOITURE", "ORDINATEUR", "BANANE", "VACANCES"];
+const word = words[Math.floor(Math.random()*words.length)]; //choisir mot aléatoirement dans la liste
+
+
+
+class App extends Component{
+  
+  
+  
+
+  WordMasked(word) {
+    //transforme string en tbaleau pour pouvoir utiliser le .map
+    word = word.split("");
+    word = word.map(currentLetter => currentLetter = letterMasked);
+    return word;
+  }
+
+
+render(){
+  return(
+    <div className="hangmanWord">
+      {this.WordMasked(word)}
+      <div className="letters">
+        {letters}
+      </div>
+
     </div>
-  );
+
+  )
+}
+
+
 }
 
 export default App;
