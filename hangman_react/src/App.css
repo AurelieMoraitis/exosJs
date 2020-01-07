@@ -16,3 +16,30 @@
 .hangman{
     text-align: left;
 }
+
+.letterChoice{
+    display: inline-block;
+}
+
+.errorInput{
+    border: 2px solid red;
+}
+
+.errorMessage{
+    color: red;
+    margin-left: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+.hangmanWord .errorMessage{
+    font-size: 15px;
+}
+
+#try{
+    text-align: right;
+    font-size: 15px;
+    position: absolute; top: 0; right: 0;
+}
