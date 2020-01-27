@@ -1,4 +1,4 @@
-"use strict"; //force la déclaration de variables
+"use strict"; //force la dÃ©claration de variables
 
 let initialTable = ["voiture","banane","saumon","pates"];
 let finalTable = [];
@@ -7,7 +7,10 @@ function myFunction(){
     //dingDingBottle(5);
     //upDownLeftRight(initialTable, false, true);
     //palindrome("sas");
-    sufferingOfKeys("kayak");
+    //sufferingOfKeys("kayak");
+    let tab = ['a','b',['e', 'f',[1,[2,["e"]]]]];
+    let flattenResult = flatten(tab);
+    console.log(flattenResult);
 }
 
 function dingDingBottle(n) {
@@ -27,7 +30,6 @@ function dingDingBottle(n) {
     }
 
 }
-
 
 function upDownLeftRight(initialTable, isLow, isReversed){
     
@@ -88,3 +90,43 @@ function sufferingOfKeys(text){
     }
     console.log(resultFinal);
 }
+
+let result = [];
+function flatten(tab){
+
+    for(var i =0; i<tab.length; i++){
+       if(typeof(tab[i]) === "object"){
+            //  for (var j=0; j<tab[i].length; j++){
+            //     result.push(tab[i][j]);
+            // }
+            flatten2(tab[i]);
+            console.log("ici")
+        }
+        else{
+            result.push(tab[i]);
+        }
+
+    }
+    
+    return result;
+};
+
+
+function flatten2(tab){
+
+    for(var i =0; i<tab.length; i++){
+       if(typeof(tab[i]) === "object"){
+            //  for (var j=0; j<tab[i].length; j++){
+            //     result.push(tab[i][j]);
+            // }
+            flatten2(tab[i]);
+            console.log("ici")
+        }
+        else{
+            result.push(tab[i]);
+        }
+
+    }
+    
+    return result;
+};
